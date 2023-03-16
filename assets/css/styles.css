@@ -30,8 +30,9 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100%;
 
-    z-index: 1;
-    overflow: visible;
+    /* z-index: 1; */
+    overflow: hidden;
+    border-radius: 1em;
 }
 
 .attribution {
