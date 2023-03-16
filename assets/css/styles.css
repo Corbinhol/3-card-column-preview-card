@@ -1,13 +1,165 @@
 * {
     margin: 0px;
     padding: 0px;
-    font-family: 'Lexend Deca', sans-serif;   
+    font-family: 'Lexend Deca', sans-serif;
+
+    --sedan-background: hsl(31, 77%, 52%);
+    --suv-background: hsl(184, 100%, 22%);
+    --luxury-background: hsl(179, 100%, 13%);
+
+    --main-color: hsla(0, 0%, 100%, 0.75);
+    --compliment-color: hsl(0, 0%, 95%);
 }
 
 h1 {
     font-family: 'Big Shoulders Display', cursive;   
 }
 
-.green {
-    color: green;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
+
+.grid {
+    width: 60em;
+    height: 35em;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+
+    z-index: 1;
+    overflow: visible;
+}
+
+.attribution {
+    position: fixed;
+    bottom: 1vh;
+    min-width: 100vw;
+    text-align: center;
+}
+
+.sedan {
+    background: var(--sedan-background);
+}
+
+.suv {
+    background: var(--suv-background);
+}
+
+.luxury {
+    background: var(--luxury-background);
+}
+
+.cell {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.cell p {
+    color: var(--main-color);
+    max-width: 75%;
+    font-size: 1.25rem;
+    align-self: center;
+    width: 100%;
+    opacity: 100%;
+    z-index: 2;
+}
+
+.cell h1 {
+    color: var(--compliment-color);
+    margin-left: .5em;
+    margin-top: 2.5em;
+    margin-bottom: .5em;
+    font-size: 2.7em;
+    z-index: 2;
+    
+}
+
+.cell img {
+    position: absolute;
+    width: 25em;
+    top: -3em;
+    opacity: 50%;
+}
+
+.cell .button {
+    text-decoration: none;
+    position:absolute;
+    font-size: 1.5em;
+    top: 87%;
+    left: 45%;
+    border: 2px solid var(--compliment-color);
+
+    padding: .4em;
+    border-radius: .5em;
+
+    transition: background .3s, color .3s ;
+}
+
+.sedan .button {
+    background: var(--compliment-color);
+    color: var(--sedan-background);
+}
+
+.suv .button {
+    background: var(--compliment-color);
+    color: var(--suv-background);
+}
+
+.luxury .button {
+    background: var(--compliment-color);
+    color: var(--luxury-background);
+}
+
+
+.button:hover {
+    background: transparent;
+    color: var(--compliment-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 375px) {
+    body {
+        justify-content: default;
+        align-items: default;
+    }
+
+    .grid {
+        width: 90%;
+        height: auto;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 100%;
+        margin-top: 5em;
+        margin-bottom: 5em;
+    }
+
+    .cell {
+        height: auto;
+    }
+
+    .cell h1 {
+        margin-top: 3em;
+    }
+
+    .cell p {
+        margin-bottom: 12em;
+    }
+    
+    .cell .button {
+        top: 83%;
+    }
+  }
